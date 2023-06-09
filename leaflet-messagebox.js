@@ -1,7 +1,8 @@
 L.Control.Messagebox = L.Control.extend({
     options: {
         position: 'topright',
-        timeout: 3000
+        timeout: 3000,
+        cssClass: 'default'
     },
 
     onAdd: function (map) {
@@ -10,10 +11,11 @@ L.Control.Messagebox = L.Control.extend({
         return this._container;
     },
 
-    show: function (message, timeout) {
+    show: function (message, cssClass, timeout) {
         var elem = this._container;
         elem.innerHTML = message;
         elem.style.display = 'block';
+        elem.classList.add(cssClass || this.options.cssClass);
 
         timeout = timeout || this.options.timeout;
 
