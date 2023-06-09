@@ -27,13 +27,26 @@ or, when implicitly used with the map:
 
     map.messagebox.show( 'This is the message' );
 
+### Available Parameters:
+
+There are only three parameters :
+
+`message:` (string) The message to display.
+
+`cssClass:` (string) The css class to apply on message dom element. Optional, defaults to 'default'.
+
+`timeout:` (integer) The duration the messagebox/notification is shown in milliseconds. Optional, defaults to 3000 (3 sec).
+
+
 ## Available Options:
 
-There are only two options:
+There are only three options:
 
 `position:` (string) The standard Leaflet.Control position parameter. Optional, defaults to 'topright'
 
 `timeout:` (integer) The duration the messagebox/notification is shown in milliseconds. Optional, defaults to 3000 (3 sec).
+
+`cssClass:` (string) The default css class to apply on message dom element. Optional, defaults to 'default'.
 
 ## Styling ##
 
