@@ -15,7 +15,12 @@ L.Control.Messagebox = L.Control.extend({
         var elem = this._container;
         elem.innerHTML = message;
         elem.style.display = 'block';
-        elem.classList.add(cssClass || this.options.cssClass);
+
+        let finalCssClass = cssClass || this.options.cssClass;
+        if (!Array.isArray(finalCssClass)) {
+            finalCssClass = [finalCssClass]
+        }
+        elem.classList.add(...finalCssClass);
 
         timeout = timeout || this.options.timeout;
 

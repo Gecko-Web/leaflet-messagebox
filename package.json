@@ -1,6 +1,6 @@
 {
   "name": "leaflet-messagebox",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A Leaflet plugin to display a temporary message on a map (with css custom class)",
   "main": "index.js",
   "repository": "https://github.com/Gecko-Web/leaflet-messagebox",

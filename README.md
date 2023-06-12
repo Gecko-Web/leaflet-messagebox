@@ -33,7 +33,7 @@ There are only three parameters :
 
 `message:` (string) The message to display.
 
-`cssClass:` (string) The css class to apply on message dom element. Optional, defaults to 'default'.
+`cssClass:` (string|string[]) The css class to apply on message dom element. Optional, defaults to 'default'.
 
 `timeout:` (integer) The duration the messagebox/notification is shown in milliseconds. Optional, defaults to 3000 (3 sec).
 
@@ -46,7 +46,7 @@ There are only three options:
 
 `timeout:` (integer) The duration the messagebox/notification is shown in milliseconds. Optional, defaults to 3000 (3 sec).
 
-`cssClass:` (string) The default css class to apply on message dom element. Optional, defaults to 'default'.
+`cssClass:` (string|string[]) The default css class to apply on message dom element. Optional, defaults to 'default'.
 
 ## Styling ##
 
