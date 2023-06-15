@@ -79,8 +79,8 @@ Creates a new messagebox and return the messagebox object
 ### `show(message,timeout)`:`{Messagebox}`
 
 Shows a messagebox and return the messagebox object
-* `message` : {string} The message to display. Optional, the default value will be the one assigned via the `new()` method.
-* `timeout` : {integer} The duration the messagebox is shown in milliseconds. Optional, the default value will be the one assigned via the `new()` method.
+* `message` : {null|string} The message to display. Optional, the default value will be the one assigned via the `new()` method.
+* `timeout` : {null|integer|bool} The duration the messagebox is shown in milliseconds. Optional, the default value will be the one assigned via the `new()` method.
 
 ### `hide()`:`{Messagebox}`
 Hides the messagebox and return the messagebox object

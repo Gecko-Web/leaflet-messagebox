@@ -36,17 +36,17 @@ L.Control.Messagebox = L.Control.extend({
     },
     /**
      * Show the message box
-     * @param {string} message
+     * @param {null|string} message
      * @param {int|null|false} timeout
      * @return {Messagebox}
      */
     show: function (message, timeout) {
         let _self = this
         let elem = this._container;
-        if (typeof message !== 'undefined') {
+        if (message !== null && typeof message !== 'undefined') {
             elem.innerHTML = message;
         }
-        if (typeof timeout == 'undefined') {
+        if (timeout === null || typeof timeout == 'undefined' || timeout === true) {
             timeout = this.timeout
         }
         if (typeof this.timeoutID == 'number') {
