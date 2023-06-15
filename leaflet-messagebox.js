@@ -1,35 +1,79 @@
+// noinspection JSVoidFunctionReturnValueUsed
 L.Control.Messagebox = L.Control.extend({
     options: {
         position: 'topright',
         timeout: 3000,
-        cssClass: 'default'
+        cssClass: 'messagebox'
     },
 
     onAdd: function (map) {
         this._container = L.DomUtil.create('div', 'leaflet-control-messagebox');
-        //L.DomEvent.disableClickPropagation(this._container);
         return this._container;
     },
 
-    show: function (message, cssClass, timeout) {
-        var elem = this._container;
+    /**
+     * Create a new message box
+     * @param {string} message
+     * @param {string|string[]}cssClass
+     * @param {int|null|false} timeout
+     * @param {boolean} show
+     * @return {Messagebox}
+     */
+    new: function (message, cssClass, timeout, show = true) {
+        let elem = this._container;
+        this.timeout = timeout || this.options.timeout;
         elem.innerHTML = message;
-        elem.style.display = 'block';
 
         let finalCssClass = cssClass || this.options.cssClass;
         if (!Array.isArray(finalCssClass)) {
             finalCssClass = [finalCssClass]
         }
         elem.classList.add(...finalCssClass);
-
-        timeout = timeout || this.options.timeout;
-
+        if (show) {
+            this.show()
+        }
+        return this
+    },
+    /**
+     * Show the message box
+     * @param {string} message
+     * @param {int|null|false} timeout
+     * @return {Messagebox}
+     */
+    show: function (message, timeout) {
+        let _self = this
+        let elem = this._container;
+        if (typeof message !== 'undefined') {
+            elem.innerHTML = message;
+        }
+        if (typeof timeout == 'undefined') {
+            timeout = this.timeout
+        }
         if (typeof this.timeoutID == 'number') {
             clearTimeout(this.timeoutID);
         }
-        this.timeoutID = setTimeout(function () {
-            elem.style.display = 'none';
-        }, timeout);
+        if (timeout !== false) {
+            this.timeoutID = setTimeout(function () {
+                _self.hide()
+            }, timeout);
+        }
+        elem.style.display = 'block';
+        return this
+    },
+    /**
+     * Hide the message box
+     * @return {Messagebox}
+     */
+    hide: function () {
+        let elem = this._container;
+        elem.style.display = 'none';
+        return this
+    },
+    /**
+     * Remove the message box
+     */
+    delete: function () {
+        L.DomUtil.remove(this._container);
     }
 });
 
